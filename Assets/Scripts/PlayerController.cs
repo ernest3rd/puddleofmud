@@ -14,11 +14,15 @@ public class PlayerController : MonoBehaviour {
 	public GameObject leftFoot;
 	public GameObject rightFoot;
 
+	public AudioClip leftStep;
+	public AudioClip rightStep;
+
+	private AudioSource ass;
+
 	private GameObject steppingFootTarget;
 	private GameObject groundedFootTarget;
 	private GameObject steppingFoot;
 	private GameObject groundedFoot;
-
 
 	private Vector3 stepVel;
 	private Vector3 globalVel;
@@ -26,6 +30,10 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 startingPosition;
 
 	private float totalDistance = 0;
+
+	void Awake(){
+		ass = GetComponent<AudioSource> ();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -107,11 +115,13 @@ public class PlayerController : MonoBehaviour {
 			groundedFootTarget = leftFootTarget;
 			steppingFoot = rightFoot;
 			groundedFoot = leftFoot;
+			PlayAudio (leftStep);
 		} else {
 			steppingFootTarget = leftFootTarget;
 			groundedFootTarget = rightFootTarget;
 			steppingFoot = leftFoot;
 			groundedFoot = rightFoot;
+			PlayAudio (rightStep);
 		}
 
 		float distA = Vector3.Distance (
@@ -129,5 +139,10 @@ public class PlayerController : MonoBehaviour {
 
 	public float getTotalDistance(){
 		return totalDistance;
+	}
+
+	private void PlayAudio(AudioClip ac){
+		ass.clip = ac;
+		ass.Play ();
 	}
 }

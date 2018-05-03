@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\DustParticleController.cs" />
+     <Compile Include="Assets\MarkerController.cs" />
+     <Compile Include="Assets\ObstacleAudioPlayer.cs" />
      <Compile Include="Assets\Scripts\CustomIK.cs" />
      <Compile Include="Assets\Scripts\FootFixedAngle.cs" />
      <Compile Include="Assets\Scripts\GroundController.cs" />
