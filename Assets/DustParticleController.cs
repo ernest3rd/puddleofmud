@@ -38,7 +38,7 @@ public class DustParticleController : MonoBehaviour {
 				if (dist < 5f) {
 					Vector3 pull = (slipper.transform.position - transform.position).normalized;
 					if (dist < 2f) {
-						pull *= dist;
+						pull *= dist + 0.1f;
 						rb.velocity *= 0.9f;
 					} else {
 						pull *= 1f / (dist + 0.01f);
