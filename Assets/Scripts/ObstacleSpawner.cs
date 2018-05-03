@@ -27,5 +27,13 @@ public class ObstacleSpawner : MonoBehaviour {
 			GameObject o = Instantiate<GameObject> (obstacles[0], newPos, transform.rotation, tParent.transform);
 			o.GetComponent<ObstacleController> ().setPlayerController (pc);
 		}
+
+		if (pc.getVelocity().magnitude > 0 && Random.Range (0, 1000) < 200) {
+			Vector3 newPos2 = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+			newPos2.z = Random.Range (topBoundary.position.z, bottomBoundary.position.z);
+			newPos2.y += Random.Range (0, 2f);
+			GameObject o2 = Instantiate<GameObject> (obstacles[1], newPos2, transform.rotation, tParent.transform);
+			o2.GetComponent<ObstacleController> ().setPlayerController (pc);
+		}
 	}
 }

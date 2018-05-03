@@ -51,12 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CustomIK\Scripts\CustomIK.cs" />
-     <Compile Include="Assets\FootFixedAngle.cs" />
-     <Compile Include="Assets\GroundController.cs" />
-     <Compile Include="Assets\ObstacleController.cs" />
+     <Compile Include="Assets\DustParticleController.cs" />
+     <Compile Include="Assets\MarkerController.cs" />
+     <Compile Include="Assets\ObstacleAudioPlayer.cs" />
+     <Compile Include="Assets\Scripts\CustomIK.cs" />
+     <Compile Include="Assets\Scripts\FootFixedAngle.cs" />
+     <Compile Include="Assets\Scripts\GroundController.cs" />
+     <Compile Include="Assets\Scripts\ObstacleController.cs" />
      <Compile Include="Assets\Scripts\ObstacleSpawner.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\SunController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
