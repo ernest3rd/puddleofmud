@@ -17,7 +17,7 @@ public class GroundController : MonoBehaviour {
 	void Update () {
 		float dist = -(pc.getVelocity ()).x;
 
-		float rotation = Mathf.Atan(dist/80) * radian;
+		float rotation = Mathf.Atan(dist/160) * radian;
 
 		Debug.Log (rotation);
 

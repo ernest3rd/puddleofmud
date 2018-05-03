@@ -44,15 +44,15 @@ public class PlayerController : MonoBehaviour {
 			vel.x = -1f;
 		}
 		else*/ 
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetKey (KeyCode.UpArrow)) {
 			vel.x = 1f;
 		}
 
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			vel.z = -1f;
+			vel.z = 1f;
 		}
 		else if (Input.GetKey (KeyCode.RightArrow)) {
-			vel.z = 1f;
+			vel.z = -1f;
 		}
 			
 		float distA = Vector3.Distance (
