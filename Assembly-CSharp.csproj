@@ -51,10 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CustomIK\Scripts\CustomIK.cs" />
-     <Compile Include="Assets\FootFixedAngle.cs" />
-     <Compile Include="Assets\GroundController.cs" />
-     <Compile Include="Assets\ObstacleController.cs" />
+     <Compile Include="Assets\DustParticleController.cs" />
+     <Compile Include="Assets\Scripts\CustomIK.cs" />
+     <Compile Include="Assets\Scripts\FootFixedAngle.cs" />
+     <Compile Include="Assets\Scripts\GroundController.cs" />
+     <Compile Include="Assets\Scripts\ObstacleController.cs" />
      <Compile Include="Assets\Scripts\ObstacleSpawner.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
  <Reference Include="UnityEngine.UI">
