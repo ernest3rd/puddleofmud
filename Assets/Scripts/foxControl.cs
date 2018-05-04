@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class foxControl : MonoBehaviour {
 
+	public float speed = 1f;
 
 	private int moveAmount;
+	public Vector3 target = new Vector3 (0, 0, 0);
 
 	// Use this for initialization
 	void Start () {
@@ -15,16 +17,11 @@ public class foxControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (DustParticleController.counter >= 1){
-			foreach (Transform child in transform) {
-            child.position += Vector3.forward * 0.1F;
-						moveAmount++;
-						child.position += Vector3.zero;
-						if (moveAmount >= 10){
-							child.position += Vector3.forward * 0.0F;
-						}
 
-        }
+
+		if (DustParticleController.counter >= 1){
+			Vector3 direction = (target - transform.position).normalized;
+			transform.position += direction * speed * Time.deltaTime;
 		}
 
 	}
