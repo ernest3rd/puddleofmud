@@ -52,10 +52,6 @@ public class DustParticleController : MonoBehaviour {
 		rb.AddForce (wonder * 0.01f);
 	}
 
-	void LateUpdate(){
-		transform.LookAt (Camera.main.transform);
-	}
-
 	void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.CompareTag ("Slippers")) {
