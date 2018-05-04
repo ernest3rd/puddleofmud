@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour {
 
 	private float totalDistance = 0;
 
+	public Text countText;
+	public Text winText;
+
 	void Awake(){
 		ass = GetComponent<AudioSource> ();
 	}
@@ -42,8 +46,9 @@ public class PlayerController : MonoBehaviour {
 		startingPosition = Vector3.zero + transform.position;
 		switchFeet ();
 		totalDistance = 0;
+		DustParticleController.counter = 0;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		Vector3 vel = Vector3.zero;
@@ -51,7 +56,7 @@ public class PlayerController : MonoBehaviour {
 		/*if (Input.GetKey (KeyCode.DownArrow)) {
 			vel.x = -1f;
 		}
-		else*/ 
+		else*/
 		if (Input.GetKey (KeyCode.UpArrow)) {
 			vel.x = 1f;
 		}
@@ -62,15 +67,15 @@ public class PlayerController : MonoBehaviour {
 		else if (Input.GetKey (KeyCode.RightArrow)) {
 			vel.z = -1f;
 		}
-			
+
 		float distA = Vector3.Distance (
-			new Vector3 (groundedFootTarget.transform.position.x, 0, groundedFootTarget.transform.position.z), 
+			new Vector3 (groundedFootTarget.transform.position.x, 0, groundedFootTarget.transform.position.z),
 			new Vector3 (steppingFootTarget.transform.position.x, 0, steppingFootTarget.transform.position.z)
 		);
 
 		if (vel.magnitude > 0) {
 			float distB = Vector3.Distance (
-				              new Vector3 (groundedFootTarget.transform.position.x, 0, groundedFootTarget.transform.position.z), 
+				              new Vector3 (groundedFootTarget.transform.position.x, 0, groundedFootTarget.transform.position.z),
 				              new Vector3 (steppingFootTarget.transform.position.x, 0, steppingFootTarget.transform.position.z) + vel
 			              );
 
@@ -107,8 +112,14 @@ public class PlayerController : MonoBehaviour {
 		transform.position = pos;
 
 		totalDistance += -globalVel.x * Time.deltaTime;
+
+		countText.text = "Fluff: " + DustParticleController.counter.ToString();
+		if (DustParticleController.counter >= 4){
+			winText.text = "Look at Those Legs";
+		}
+
 	}
-			
+
 	void switchFeet(){
 		if (steppingFootTarget == leftFootTarget) {
 			steppingFootTarget = rightFootTarget;
@@ -125,7 +136,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		float distA = Vector3.Distance (
-			new Vector3 (groundedFootTarget.transform.position.x, 0, groundedFootTarget.transform.position.z), 
+			new Vector3 (groundedFootTarget.transform.position.x, 0, groundedFootTarget.transform.position.z),
 			new Vector3 (steppingFootTarget.transform.position.x, 0, steppingFootTarget.transform.position.z)
 		);
 		//float distA = Mathf.Abs (groundedFootTarget.transform.position.x - steppingFootTarget.transform.position.x);
@@ -145,4 +156,5 @@ public class PlayerController : MonoBehaviour {
 		ass.clip = ac;
 		ass.Play ();
 	}
+
 }
