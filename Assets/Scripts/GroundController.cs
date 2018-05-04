@@ -19,8 +19,6 @@ public class GroundController : MonoBehaviour {
 
 		float rotation = Mathf.Atan(dist/160) * radian;
 
-		Debug.Log (rotation);
-
 		transform.Rotate (0, 0, rotation * Time.deltaTime);
 
 	}
