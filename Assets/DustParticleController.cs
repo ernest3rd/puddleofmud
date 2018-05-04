@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DustParticleController : MonoBehaviour {
 
@@ -12,6 +13,10 @@ public class DustParticleController : MonoBehaviour {
 
 	private bool connected = false;
 
+	public static int counter;
+	public Text countText;
+
+
 	void Awake(){
 		rb = GetComponent<Rigidbody> ();
 	}
@@ -21,7 +26,7 @@ public class DustParticleController : MonoBehaviour {
 		slippers = GameObject.FindGameObjectsWithTag ("Slippers");
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		Color c = gameObject.GetComponent<SpriteRenderer> ().color;
@@ -63,6 +68,11 @@ public class DustParticleController : MonoBehaviour {
 			joint.connectedBody = collision.rigidbody;
 			GetComponent<Collider> ().enabled = false;
 			connected = true;
+			if (connected == true){
+				counter++;
+			  Debug.Log(counter);
+			}
 		}
 	}
+
 }
