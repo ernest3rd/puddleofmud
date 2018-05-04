@@ -114,9 +114,9 @@ public class PlayerController : MonoBehaviour {
 		totalDistance += -globalVel.x * Time.deltaTime;
 
 		countText.text = "Fluff: " + DustParticleController.counter.ToString();
-		if (DustParticleController.counter >= 4){
-			winText.text = "Look at Those Legs";
-		}
+		// if (DustParticleController.counter >= 4){
+		// 	winText.text = "Look at Those Legs";
+		// }
 
 	}
 
