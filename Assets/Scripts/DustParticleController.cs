@@ -24,7 +24,7 @@ public class DustParticleController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		slippers = GameObject.FindGameObjectsWithTag ("Slippers");
-		player = GameObject.FindGameObjectWithTag ("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	// Update is called once per frame
@@ -66,7 +66,6 @@ public class DustParticleController : MonoBehaviour {
 			connected = true;
 			if (connected == true){
 				counter++;
-			  Debug.Log(counter);
 			}
 		}
 	}

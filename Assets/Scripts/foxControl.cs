@@ -12,6 +12,9 @@ public class foxControl : MonoBehaviour {
 	public Vector3 target = new Vector3 (0f, 30f, 0f);
 	public float rotTarget = 0f;
 
+    public RocketMovement rocket;
+    public GroundController ground;
+
 
 	private bool begin;
 	private bool firstScene;
@@ -205,7 +208,7 @@ public class foxControl : MonoBehaviour {
 					target = new Vector3 (10f, 0f, 9f);
 					rotTarget = 150f;
 					StartCoroutine(FadeTextToFullAlpha(1f, winText.GetComponent<Text>()));
-					winText.text = "Hey, what's that over there?";
+					winText.text = "I like your new fluffy beard. Thanks for also collecting it with your face.";
 					eigthScene = true;
 
 			}
@@ -224,8 +227,9 @@ public class foxControl : MonoBehaviour {
 					target = new Vector3 (10f, 0f, 9f);
 					rotTarget = 150f;
 					StartCoroutine(FadeTextToFullAlpha(1f, winText.GetComponent<Text>()));
-					winText.text = "Technology hurts.";
+					winText.text = "Hey, what's that over there?";
 					ninthScene = true;
+                    
 
 			}
 
@@ -235,30 +239,31 @@ public class foxControl : MonoBehaviour {
 					rotTarget = 150f;
 					StartCoroutine(FadeTextToZeroAlpha(1f, winText.GetComponent<Text>()));
 					ninthSceneEnd = true;
+            rocket.Go();
 
 			}
 
-			if (DustParticleController.counter >= 380 && tenthScene == false) {
+            if (DustParticleController.counter >= 380 && tenthScene == false)
+            {
 
-					target = new Vector3 (10f, 0f, 9f);
-					rotTarget = 150f;
-					StartCoroutine(FadeTextToFullAlpha(1f, winText.GetComponent<Text>()));
-					winText.text = "Follow me.";
-					tenthScene = true;
+                target = new Vector3(10f, 0f, 9f);
+                rotTarget = 150f;
+                StartCoroutine(FadeTextToFullAlpha(1f, winText.GetComponent<Text>()));
+                winText.text = "Follow me.";
+            tenthScene = true;
 
-			}
+            }
 
-			if (DustParticleController.counter >= 400 && tenthSceneEnd == false) {
+            if (DustParticleController.counter >= 400 && tenthSceneEnd == false)
+            {
 
-					target = new Vector3 (10f, 30f, 9f);
-					rotTarget = 150f;
-					StartCoroutine(FadeTextToZeroAlpha(1f, winText.GetComponent<Text>()));
-					tenthSceneEnd = true;
+                target = new Vector3(10f, 30f, 9f);
+                rotTarget = 150f;
+                StartCoroutine(FadeTextToZeroAlpha(1f, winText.GetComponent<Text>()));
+                tenthSceneEnd = true;
+            ground.Go();
 
-			}
-
-
-
+            }
 	}
 
 	 IEnumerator FadeTextToFullAlpha(float t, Text i)

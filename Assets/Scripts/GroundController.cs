@@ -8,6 +8,8 @@ public class GroundController : MonoBehaviour {
 
 	private float radian = 180 / Mathf.PI;
 
+    public bool moveAway = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,5 +23,12 @@ public class GroundController : MonoBehaviour {
 
 		transform.Rotate (0, 0, rotation * Time.deltaTime);
 
+        if(moveAway){
+            transform.position += Vector3.down * Time.deltaTime;
+        }
 	}
+
+    public void Go(){
+        moveAway = true;
+    }
 }
